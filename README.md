@@ -1,2 +1,1 @@
-# MPG
-Final Project
+# autompg-azure-mlops-main
