@@ -18,9 +18,14 @@ jobs:
         mode: upload
       test_data:
         mode: upload
+
+    settings:
+      default_datastore: azureml:workspaceblobstore
+      default_compute: azureml:cpu-cluster
+      continue_on_step_failure: false
     code: src/prep
     environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-    compute: azureml:aivalueprospector1
+    # compute: azureml:aivalueprospector1
     command: >-
       python prep.py 
       --data ${{inputs.data}} 
@@ -38,7 +43,7 @@ jobs:
       model: 
     code: src/train
     environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-    compute: azureml:aivalueprospector1
+    # compute: azureml:aivalueprospector1
     command: >-
       python train.py 
       --train_data ${{inputs.train_data}} 
